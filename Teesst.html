@@ -47,7 +47,7 @@
     bottom: -2px;
   }
 
-  .a-pagi sarah::before, .a-sore sarah::before, .a-malam sarah::before {
+  .a-pagi::before, .a-sore::before, .a-malam::before {
     content: " ";
     position: absolute;
     bottom: 2px;
@@ -58,21 +58,21 @@
     z-index: -1;
   }
 
-  .a-pagi sarah:hover::before, .a-sore sarah:hover::before, .a-malam sarah:hover::before{
+  .a-pagi:hover::before, .a-sore:hover::before, .a-malam:hover::before{
     opacity: .8;
     top: -2px;
     bottom: -2px;
   }
 
-  .a-pagi sarah::before {
+  .a-pagi::before {
     background: #eeff41;
   }
 
-  .a-sore sarah::before {
+  .a-sore::before {
     background: #e3f2fd;
   }
 
-  .a-malam sarah::before {
+  .a-malam::before {
     background: #607d8b;
   }
 </style>
@@ -84,7 +84,7 @@
   </div>
   <footer>
     <div>
-      created with <span style="color: red;">&hearts;</span> by <a class="link" href="https://fb.me/alfianokt104" target="_blank" rel="nofollow">Alfian Oktafireza</a>, <a class="link" href="https://github.com/alfianokt/bucin" target="_blank" rel="nofollow">Github</a>
+      created with <span style="color: red;">&hearts;</span> by <a class="link" href="https://fb.me/alfianokt104" target="_blank" rel="nofollow">Sarah Fauziah</a>, <a class="link" href="https://github.com/alfianokt/bucin" target="_blank" rel="nofollow">Github</a>
     </div>
   </footer>
 
@@ -96,15 +96,15 @@
       localStorage.name = window.location.search.substr(1)
     }
     let theme = {
-      pagi sarah: {
+      pagi: {
         body: '#e3f2fd',
         text: '#000'
       },
-      sore sarah: {
+      sore: {
         body: '#ffd54f',
         text: '#37474f'
       },
-      malam sarah: {
+      malam: {
         body: '#212121',
         text: '#fff'
       },
@@ -119,10 +119,10 @@
     function changeTheme() {
       const word = 'Selamat ' + now.slice(0, 1).toUpperCase() + now.slice(1) + ' ' + decodeURIComponent(name)
         .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
-      tmpNow = now == 'siang sarah' ? 'pagi sarah' : now
+      tmpNow = now == 'siang' ? 'pagi' : now
       removeClassLink()
       document.querySelectorAll('.link').forEach(el => {
-        el.classList.add('a-' + (tmpNow == 'siang sarah' ? 'pagi sarah' : tmpNow))
+        el.classList.add('a-' + (tmpNow == 'siang' ? 'pagi' : tmpNow))
       })
       document.body.style.background = theme[tmpNow].body
       document.querySelector('#app').style.color = theme[tmpNow].text
@@ -136,18 +136,18 @@
     }
 
     function tmpChangeTheme() {
-      now = now == 'pagi sarah' || now == 'siang sarah' ? 'sore sarah' :
-             now == 'sore sarah' ? 'malam sarah' :
-             now == 'malam sarah' ? 'pagi sarah' : ''
+      now = now == 'pagi' || now == 'siang' ? 'sore' :
+             now == 'sore' ? 'malam' :
+             now == 'malam' ? 'pagi' : ''
       changeTheme()
     }
 
     function removeClassLink() {
       document.querySelectorAll('.link').forEach(el => {
         const _ = el.classList
-        _.remove('a-pagi sarah')
-        _.remove('a-sore sarah')
-        _.remove('a-malam sarah')
+        _.remove('a-pagi')
+        _.remove('a-sore')
+        _.remove('a-malam')
       })
     }
 
@@ -156,16 +156,16 @@
       const jam = d.getHours()
       const oldNow = now
       if (jam >= 6 && jam < 12) {
-        now = 'pagi sarah'
+        now = 'pagi'
       }
       else if (jam >= 12 && jam < 15) {
-        now = 'siang sarah'
+        now = 'siang'
       }
       else if (jam >= 15 && jam < 19) {
-        now = 'sore sarah'
+        now = 'sore'
       }
       else if ((jam >= 19 && jam <= 24) || jam < 6) {
-        now = 'malam sarah'
+        now = 'malam'
       }
 
       oldNow != now ? changeTheme() : ''
