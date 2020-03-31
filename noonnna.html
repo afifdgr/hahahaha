@@ -47,7 +47,7 @@
     bottom: -2px;
   }
 
-  .a-coba sarah::before, .a-sore::before, .a-malam::before {
+  .a-coba..sarah::before, .a-sore::before, .a-malam::before {
     content: " ";
     position: absolute;
     bottom: 2px;
@@ -58,13 +58,13 @@
     z-index: -1;
   }
 
-  .a-coba sarah:hover::before, .a-sore:hover::before, .a-malam:hover::before{
+  .a-coba..sarah:hover::before, .a-sore:hover::before, .a-malam:hover::before{
     opacity: .8;
     top: -2px;
     bottom: -2px;
   }
 
-  .a-coba sarah::before {
+  .a-coba..sarah::before {
     background-image: url ("ima.jpeg");
   }
 
@@ -96,7 +96,7 @@
       localStorage.name = window.location.search.substr(1)
     }
     let theme = {
-      coba sarah: {
+      coba..sarah: {
         body: '#e3f2fd',
         text: '#000'
       },
@@ -136,16 +136,16 @@
     }
 
     function tmpChangeTheme() {
-      now = now == 'coba sarah' || now == 'siang' ? 'sore' :
+      now = now == 'coba..sarah' || now == 'siang' ? 'sore' :
              now == 'sore' ? 'malam' :
-             now == 'malam' ? 'coba sarah' : ''
+             now == 'malam' ? 'coba..sarah' : ''
       changeTheme()
     }
 
     function removeClassLink() {
       document.querySelectorAll('.link').forEach(el => {
         const _ = el.classList
-        _.remove('a-coba sarah')
+        _.remove('a-coba..sarah')
         _.remove('a-sore')
         _.remove('a-malam')
       })
