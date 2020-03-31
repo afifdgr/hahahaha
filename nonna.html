@@ -47,7 +47,7 @@
     bottom: -2px;
   }
 
-  .a-pagi::before, .a-sore::before, .a-malam::before {
+  .a-coba::before, .a-sore::before, .a-malam::before {
     content: " ";
     position: absolute;
     bottom: 2px;
@@ -58,13 +58,13 @@
     z-index: -1;
   }
 
-  .a-pagi:hover::before, .a-sore:hover::before, .a-malam:hover::before{
+  .a-coba:hover::before, .a-sore:hover::before, .a-malam:hover::before{
     opacity: .8;
     top: -2px;
     bottom: -2px;
   }
 
-  .a-pagi::before {
+  .a-coba::before {
     background-image: url ("ima.jpeg");
   }
 
@@ -96,7 +96,7 @@
       localStorage.name = window.location.search.substr(1)
     }
     let theme = {
-      pagi: {
+      coba: {
         body: '#e3f2fd',
         text: '#000'
       },
@@ -119,7 +119,7 @@
     function changeTheme() {
       const word = 'Selamat ' + now.slice(0, 1).toUpperCase() + now.slice(1) + ' ' + decodeURIComponent(name)
         .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
-      tmpNow = now == 'siang' ? 'pagi' : now
+      tmpNow = now == 'siang' ? 'coba' : now
       removeClassLink()
       document.querySelectorAll('.link').forEach(el => {
         el.classList.add('a-' + (tmpNow == 'siang' ? 'pagi' : tmpNow))
@@ -136,16 +136,16 @@
     }
 
     function tmpChangeTheme() {
-      now = now == 'pagi' || now == 'siang' ? 'sore' :
+      now = now == 'coba' || now == 'siang' ? 'sore' :
              now == 'sore' ? 'malam' :
-             now == 'malam' ? 'pagi' : ''
+             now == 'malam' ? 'coba' : ''
       changeTheme()
     }
 
     function removeClassLink() {
       document.querySelectorAll('.link').forEach(el => {
         const _ = el.classList
-        _.remove('a-pagi')
+        _.remove('a-coba')
         _.remove('a-sore')
         _.remove('a-malam')
       })
@@ -156,7 +156,7 @@
       const jam = d.getHours()
       const oldNow = now
       if (jam >= 6 && jam < 12) {
-        now = 'pagi'
+        now = 'coba'
       }
       else if (jam >= 12 && jam < 15) {
         now = 'siang'
